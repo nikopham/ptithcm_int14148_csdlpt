@@ -38,19 +38,7 @@ services:
           echo "Waiting for mongo1..."; sleep 2;
         done
         mongosh mongodb://mongo1:27017 --file /docker-entrypoint-initdb.d/init.js
-  api:
-    image: node:20
-    working_dir: /app
-    volumes:
-      - ./backend:/app
-    environment:
-      - MONGODB_URI=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs0
-      - NODE_ENV=development
-    command: bash -lc "npm i && npm run dev"
-    ports:
-      - "3000:3000"
-    depends_on:
-      - mongoinit
+
 volumes:
   mongo1: {}
   mongo2: {}
