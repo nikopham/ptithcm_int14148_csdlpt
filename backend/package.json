@@ -1,0 +1,15 @@
+{
+  "name": "logging-lab",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "k6": "^0.0.0",
+    "mongodb": "^6.7.0",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1"
+  },
+  "scripts": {
+    "dev": "node src/app.js",
+    "cs": "node src/logging/cs-consumer.js"
+  }
+}
